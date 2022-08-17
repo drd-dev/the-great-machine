@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/Audio_Manager.gd" type="Script" id=1]
+[ext_resource path="res://Audio/ld48_digging_music_fx.wav" type="AudioStream" id=2]
+[ext_resource path="res://Audio/ship_drill.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/ld48_menu_music.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/ld48_explore_music.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/air_lock_ready_04.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/collect_gem.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/player_breakrock.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/slime_enemy_movement.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/UI_button_press.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/pickup_axe.wav" type="AudioStream" id=11]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Drill_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 2.0
+bus = "SFX"
+
+[node name="Digging_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = 1.0
+bus = "Music"
+
+[node name="Exploring_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+bus = "Music"
+
+[node name="Menu_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+bus = "Music"
+
+[node name="AirLock_Ready" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+bus = "Music"
+
+[node name="Gem_Collected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+bus = "Music"
+
+[node name="RockDestroyed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "SFX"
+
+[node name="EnemyKilled" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "SFX"
+
+[node name="PickupAxe" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+bus = "SFX"

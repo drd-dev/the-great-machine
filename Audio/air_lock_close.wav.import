@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/air_lock_close.wav-5f06a517c7e2b3d36fc2544e29e5d657.sample"
+
+[deps]
+
+source_file="res://Audio/air_lock_close.wav"
+dest_files=[ "res://.import/air_lock_close.wav-5f06a517c7e2b3d36fc2544e29e5d657.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

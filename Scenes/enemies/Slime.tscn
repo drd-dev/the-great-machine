@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Sprites/enemies/slime.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/enemies/slime.gd" type="Script" id=2]
+[ext_resource path="res://Audio/slime_movement_02.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/enemy_hit_3.wav" type="AudioStream" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 5.99907, 4.46801 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0.00518135, 0 ), 0.0, 6.76753, 0, 0, Vector2( 1, 0 ), -0.770748, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 0.0815735, 0.632813, 0.154785, 1, 1, 1, 1, 0 )
+
+[node name="Slime" type="KinematicBody2D" groups=[
+"Enemy",
+]]
+collision_layer = 2
+collision_mask = 65
+script = ExtResource( 2 )
+move_speed = 25.0
+
+[node name="gfx" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+animation = "move"
+speed_scale = 2.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0468216, 3.48352 )
+shape = SubResource( 6 )
+
+[node name="walkParticles" type="CPUParticles2D" parent="."]
+position = Vector2( 0, 8 )
+amount = 10
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 3, 1 )
+direction = Vector2( -20, -10 )
+spread = 33.11
+gravity = Vector2( 0, 0 )
+initial_velocity = 5.0
+angular_velocity = 20.0
+angular_velocity_random = 0.25
+damping = 42.17
+scale_amount = 2.0
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 8 )
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+max_distance = 200.0
+bus = "SFX"
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -3.0
+max_distance = 200.0
+bus = "SFX"

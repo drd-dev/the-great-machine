@@ -1,0 +1,238 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://Sprites/Player/player.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player_Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Player/player_pickless.png" type="Texture" id=3]
+[ext_resource path="res://Audio/player_run.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/player_jump.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/player_hurt.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/player_melee_02.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/player_throw_axe_preimpact.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/low_oxygen.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/player_land_3.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/player_death.wav" type="AudioStream" id=11]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 144, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 160, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 176, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 208, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "run_noPick",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "idle_noPick",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 6.05182, 7.34178 )
+
+[sub_resource type="Curve" id=26]
+_data = [ Vector2( 0.00518135, 0 ), 0.0, 6.76753, 0, 0, Vector2( 1, 0 ), -4.46612, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=27]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 9.44407, 6.05737 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
+position = Vector2( 6.03787, 72.029 )
+z_index = 100
+collision_layer = 64
+collision_mask = 19
+script = ExtResource( 2 )
+max_speed = 130.0
+acceleration = 10.0
+deceleration = 20.0
+jump_force = 90.0
+gravity = 600.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 24 )
+animation = "Dead"
+speed_scale = 2.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0743256, 0.520279 )
+shape = SubResource( 25 )
+
+[node name="walkParticles" type="CPUParticles2D" parent="."]
+position = Vector2( 1.96213, 7.971 )
+emitting = false
+amount = 30
+lifetime = 0.3
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 3, 1 )
+direction = Vector2( -20, -10 )
+spread = 33.11
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+angular_velocity = 204.32
+angular_velocity_random = 0.25
+damping = 22.63
+scale_amount_curve = SubResource( 26 )
+color_ramp = SubResource( 27 )
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+monitoring = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+position = Vector2( 8.65481, 2.02074 )
+shape = SubResource( 28 )
+
+[node name="run_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[node name="jump_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="attack_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+attenuation = 0.133972
+bus = "SFX"
+
+[node name="throw_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+bus = "SFX"
+
+[node name="hurt_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+bus = "SFX"
+
+[node name="LowO2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="land" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+volume_db = -1.0
+bus = "SFX"
+
+[node name="die_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = -1.0
+bus = "SFX"
+
+[connection signal="body_entered" from="AttackHitbox" to="." method="_on_AttackHitbox_body_entered"]

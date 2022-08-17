@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Player_Scripts/pick_controller.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player/pick.png" type="Texture" id=2]
+[ext_resource path="res://Audio/player_throw_axe_impact.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.12991, 3.00898 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0.00518135, 0 ), 0.0, 6.76753, 0, 0, Vector2( 1, 0 ), -4.46612, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="player_pick" type="RigidBody2D"]
+position = Vector2( 17.9792, 2.96828 )
+collision_layer = 4
+mass = 2.04082
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="particles" type="CPUParticles2D" parent="."]
+position = Vector2( -0.0416999, 0.0629697 )
+amount = 30
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 3, 1 )
+direction = Vector2( -20, -10 )
+spread = 33.11
+gravity = Vector2( 0, 0 )
+angular_velocity = -43.79
+angular_velocity_random = 0.25
+damping = 22.63
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_player_pick_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/player_throw_axe_impact.wav-0dcbbc4ce1038220a421ef90d28e91e4.sample"
+
+[deps]
+
+source_file="res://Audio/player_throw_axe_impact.wav"
+dest_files=[ "res://.import/player_throw_axe_impact.wav-0dcbbc4ce1038220a421ef90d28e91e4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
